@@ -29,9 +29,11 @@ plugins {
   alias(libs.plugins.spotless) apply false
   alias(libs.plugins.mavenPublish) apply false
   alias(libs.plugins.kotlinBinaryCompatibilityValidator)
+  alias(libs.plugins.kover)
 }
 
 allprojects {
+  apply(plugin = "org.jetbrains.kotlinx.kover")
   // Note that the group name for publishing is "com.squareup" and is declared in gradle.properties. It's set to a
   // different value here to disambiguate the Maven coordinates of the :interop:javapoet submodule and the JavaPoet
   // dependency.
@@ -159,4 +161,10 @@ apiValidation {
     "interop", // Empty middle package
     "test-processor", // Test only
   )
+}
+
+kover {
+  merge {
+    subprojects { true }
+  }
 }
