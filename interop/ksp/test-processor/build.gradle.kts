@@ -47,3 +47,9 @@ dependencies {
   testImplementation(libs.kotlin.junit)
   testImplementation(libs.truth)
 }
+
+tasks.named<Test>("test") {
+  reports {
+    junitXml.outputLocation = file("$buildDir/test-results/jvmTest")
+  }
+}

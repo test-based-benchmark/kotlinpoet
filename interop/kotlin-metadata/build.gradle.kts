@@ -43,3 +43,9 @@ dependencies {
   testImplementation(libs.kotlin.annotationProcessingEmbeddable)
   testImplementation(libs.kotlin.compilerEmbeddable)
 }
+
+tasks.named<Test>("test") {
+  reports {
+    junitXml.outputLocation = file("$buildDir/test-results/jvmTest")
+  }
+}
