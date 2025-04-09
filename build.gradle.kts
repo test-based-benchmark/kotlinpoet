@@ -162,9 +162,3 @@ apiValidation {
     "test-processor", // Test only
   )
 }
-
-kover {
-  merge {
-    subprojects { true }
-  }
-}
